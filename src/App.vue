@@ -1,12 +1,41 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted, ref } from "vue";
+
+const postList = ref([]);
+const commentList = ref([]);
+
+onMounted(() => {
+  fetchPostList();
+});
+
+const fetchPostList = () => {
+  fetch("http://localhost:4430/posts")
+    .then((res) => res.json())
+    .then((list) => {
+      postList.value = list;
+    });
+};
+
+const fetchCommentList = () => {
+  fetch("http://localhost:4430/comments")
+    .then((res) => res.json())
+    .then((list) => {
+      commentList.value = list;
+    });
+};
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div>文章列表</div>
+  <div class="post-item" v-for="item in postList" :key="item.id">
+    {{ item.title }}
+  </div>
+  <hr />
+  <button class="load-comment-button" @click="fetchCommentList">加载评论</button>
+  <div class="comment-item" v-for="item in commentList" :key="item.id">
+    {{ item.content }}
+  </div>
 </template>
 
 <style>
