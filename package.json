@@ -1,0 +1,24 @@
+{
+  "name": "vitest-shared",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest -u"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@vue/test-utils": "^2.0.0-rc.19",
+    "express": "^4.17.3",
+    "happy-dom": "^2.55.0",
+    "msw": "^0.39.2",
+    "vite": "^2.9.0",
+    "vitest": "^0.8.3"
+  }
+}
