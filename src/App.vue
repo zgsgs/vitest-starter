@@ -1,8 +1,9 @@
-<script setup>
-import { onMounted, ref } from "vue";
+<script lang="ts" setup>
+import { onMounted, Ref, ref } from "vue";
+import { copyText } from '@/utils'
 
-const postList = ref([]);
-const commentList = ref([]);
+const postList: Ref<IPosts[]> = ref([]);
+const commentList: Ref<IComments[]> = ref([]);
 
 onMounted(() => {
   fetchPostList();
@@ -36,6 +37,7 @@ const fetchCommentList = () => {
   <div class="comment-item" v-for="item in commentList" :key="item.id">
     {{ item.content }}
   </div>
+  <button @click="copyText('拷贝一段文本')">拷贝</button>
 </template>
 
 <style>

@@ -3,18 +3,12 @@
  * @param {string} value
  */
 export function copyText(value: string) {
-    let input = document.createElement('input');
-    let inputID = `copyInput${Date.now()}`;
-    input.setAttribute('id', inputID);
-    input.setAttribute('value', value);
-
-    // 触发浏览器自带的复制功能
-    document.body.appendChild(input);
-    input.select();
-    if (document.execCommand('copy')) {
-        console.log('copy succeed');
+    if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(value).then(function() {
+            console.log("复制成功");
+        }, function() {
+            console.log("复制失败");
+        });
     }
-
-    // 移除输入框
-    document.body.removeChild(input);
+    return value
 }

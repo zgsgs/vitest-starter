@@ -3,16 +3,16 @@ const express = require("express");
 const app = express();
 const port = 4430;
 
-app.all('*', (req, res, next) => {
+const handleAll = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   res.header("X-Powered-By", ' 3.2.1')
   res.header("Content-Type", "application/json;charset=utf-8");
   next();
-});
+}
 
-app.get("/posts", (req, res) => {
+const handlePosts = (req, res) => {
   res.json([
     {
       userId: 1,
@@ -33,9 +33,9 @@ app.get("/posts", (req, res) => {
       body: "third post body",
     },
   ]);
-});
+}
 
-app.get("/comments", (req, res) => {
+const handleComments = (req, res) => {
   res.json([
     {
       userId: 1,
@@ -53,7 +53,11 @@ app.get("/comments", (req, res) => {
       content: "third content",
     },
   ]);
-});
+}
+
+app.all('*', handleAll);
+app.get("/posts", handlePosts);
+app.get("/comments", handleComments);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
