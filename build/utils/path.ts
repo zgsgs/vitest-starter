@@ -1,11 +1,11 @@
-import path from 'path';
+import path from 'path'
 
 /**
  * 获取项目根路径
  * @descrition 末尾不带斜杠
  */
 export function getRootPath() {
-  return path.resolve(process.cwd());
+  return path.resolve(process.cwd())
 }
 
 /**
@@ -14,9 +14,9 @@ export function getRootPath() {
  * @descrition 末尾不带斜杠
  */
 export function getSrcPath(srcName = 'src') {
-  const rootPath = getRootPath();
+  const rootPath = getRootPath()
 
-  return `${rootPath}/${srcName}`;
+  return `${rootPath}/${srcName}`
 }
 
 /**
@@ -25,8 +25,8 @@ export function getSrcPath(srcName = 'src') {
  * @descrition 末尾不带斜杠
  */
 export function getTestPath(testName = 'test') {
-  const rootPath = getRootPath();
+  const rootPath = getRootPath()
 
-  return `${rootPath}/${testName}`;
+  return `${rootPath}/${testName}`
 }
 

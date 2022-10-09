@@ -1,18 +1,18 @@
 import type { Request, Response, RequestHandler as Middleware, NextFunction } from 'express';
 
+type Method =
+  | 'get'
+  | 'head'
+  | 'post'
+  | 'put'
+  | 'delete'
+  | 'connect'
+  | 'options'
+  | 'trace'
+  | 'patch';
+
 declare global {
   type User = { username: string; password: string };
-
-  type Method =
-    | 'get'
-    | 'head'
-    | 'post'
-    | 'put'
-    | 'delete'
-    | 'connect'
-    | 'options'
-    | 'trace'
-    | 'patch';
 
   type Handler = (req: Request, res: Response) => any;
 

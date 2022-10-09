@@ -1,15 +1,15 @@
-import { type } from "./type";
+import { type } from './type'
 
 class TrustService {
-  private status = false;
+  private status = false
 
   get isTrusting() {
-    return type.hasPriv && this.status;
+    return type.hasPriv && this.status
   }
 
   setTrustStatus(status: boolean) {
-    this.status = status;
+    this.status = status
   }
 }
 
-export const trustService = new TrustService();
+export const trustService = new TrustService()

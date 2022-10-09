@@ -25,17 +25,17 @@ pnpm add @vue/test-utils -D
 3. 修改 `vitest.config.ts` 文件
 
 ```ts
-import { defineConfig } from "vitest/config";
-import path from "path";
+import path from 'path'
+import { defineConfig } from 'vitest/config'
 
-const resolveFile = (file: string) => path.resolve(__dirname, file);
+const resolveFile = (file: string) => path.resolve(__dirname, file)
 
 export default defineConfig({
   test: {
     // 运行在每个测试文件前面
-    setupFiles: [resolveFile("./test/setupFiles/index.ts")],
+    setupFiles: [resolveFile('./test/setupFiles/index.ts')],
   },
-});
+})
 
 ```
 
