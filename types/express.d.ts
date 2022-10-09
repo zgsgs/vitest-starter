@@ -1,25 +1,27 @@
-import { Request, Response, RequestHandler as Middleware, NextFunction } from 'express';
+import type { Request, Response, RequestHandler as Middleware, NextFunction } from 'express';
 
-export type User = { username: string; password: string };
+declare global {
+  type User = { username: string; password: string };
 
-type Method =
-  | 'get'
-  | 'head'
-  | 'post'
-  | 'put'
-  | 'delete'
-  | 'connect'
-  | 'options'
-  | 'trace'
-  | 'patch';
+  type Method =
+    | 'get'
+    | 'head'
+    | 'post'
+    | 'put'
+    | 'delete'
+    | 'connect'
+    | 'options'
+    | 'trace'
+    | 'patch';
 
-export type Handler = (req: Request, res: Response) => any;
+  type Handler = (req: Request, res: Response) => any;
 
-export type HandlerAll = (req: Request, res: Response, next: NextFunction)  => any;
+  type HandlerAll = (req: Request, res: Response, next: NextFunction)  => any;
 
-export type Route = {
-  method: Method;
-  path: string;
-  middleware: Middleware[];
-  handler: Handler;
-};
+  type Route = {
+    method: Method;
+    path: string;
+    middleware: Middleware[];
+    handler: Handler;
+  };
+}

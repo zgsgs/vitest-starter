@@ -1,5 +1,4 @@
 import express from "express";
-import { Handler, HandlerAll } from "~/types/express";
 
 const app = express();
 const port = 4430;

@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { onMounted, Ref, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { copyText } from '@/utils'
+import type { Ref } from 'vue'
 
-const postList: Ref<IPosts[]> = ref([]);
-const commentList: Ref<IComments[]> = ref([]);
+const postList: Ref<ApiUser.Posts[]> = ref([]);
+const commentList: Ref<ApiUser.Comments[]> = ref([]);
 
 onMounted(() => {
   fetchPostList();

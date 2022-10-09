@@ -1,12 +1,14 @@
-interface IPosts {
-  userId: number,
-  id: number,
-  title: string,
-  body: string,
-}
+declare module ApiUser {
+  interface Posts {
+    userId: number,
+    id: number,
+    title: string,
+    body: string,
+  }
 
-interface IComments {
-  userId: number,
-  id: number,
-  content: string,
+  interface Comments {
+    userId: number,
+    id: number,
+    content: string,
+  }
 }
