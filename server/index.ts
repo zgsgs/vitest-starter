@@ -1,9 +1,10 @@
-const express = require("express");
+import express from "express";
+import { Handler, HandlerAll } from "~/types/express";
 
 const app = express();
 const port = 4430;
 
-const handleAll = (req, res, next) => {
+const handleAll: HandlerAll = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
@@ -12,7 +13,7 @@ const handleAll = (req, res, next) => {
   next();
 }
 
-const handlePosts = (req, res) => {
+const handlePosts: Handler = (req, res) => {
   res.json([
     {
       userId: 1,
@@ -35,7 +36,7 @@ const handlePosts = (req, res) => {
   ]);
 }
 
-const handleComments = (req, res) => {
+const handleComments: Handler = (req, res) => {
   res.json([
     {
       userId: 1,
