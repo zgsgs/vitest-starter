@@ -6,6 +6,6 @@ exports[`App.vue > should render success 1`] = `
 <div class=\\"post-item\\">first post title</div>
 <div class=\\"post-item\\">second post title</div>
 <hr />
-<button class=\\"load-comment-button\\">加载评论</button>
-<button>拷贝</button>"
+<button class=\\"load-comment-button\\"> 加载评论 </button>
+<button> 拷贝 </button>"
 `;

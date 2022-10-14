@@ -18,7 +18,7 @@ export default defineConfig((_configEnv) => {
     test: {
       environment: 'happy-dom',
       // 运行在每个测试文件前面
-      setupFiles: [getTestPath('/setupFiles/index.ts')],
+      setupFiles: [getTestPath('./test/setupFiles/index.ts')],
     },
   }
 })
