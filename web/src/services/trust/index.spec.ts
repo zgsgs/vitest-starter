@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
-import { trustService } from '..'
-import { type } from '../type'
+import { type } from './type'
+import { trustService } from '.'
 
 describe('trust.ts', () => {
   it('should get an initial info', () => {

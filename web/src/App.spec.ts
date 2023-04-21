@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import App from '../App.vue'
-import { sleep } from '../../test/utils'
+import { sleep } from '../test/utils'
+import App from './App.vue'
 
 describe('App.vue', () => {
   it('should render success', async () => {

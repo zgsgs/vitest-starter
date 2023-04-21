@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { copyText } from '../copy'
+import { copyText } from './copy'
 
 describe('copy.ts', () => {
   it('复制内容到系统剪切板', async () => {
