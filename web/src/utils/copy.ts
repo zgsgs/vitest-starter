@@ -4,12 +4,23 @@
  * @param {string} value
  */
 export function copyText(value: string) {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(value).then(() => {
-      console.log('复制成功')
-    }, () => {
-      console.log('复制失败')
-    })
+  if (!navigator.clipboard || !window.isSecureContext) {
+    console.log('无法获取 navigator.clipboard 对象')
+    return false
   }
-  return value
+  navigator.clipboard.writeText(value).then(() => {
+    console.log('复制成功')
+  }, () => {
+    console.log('复制失败')
+  })
+  return true
+}
+
+export async function readClipboard() {
+  if (!navigator.clipboard || !window.isSecureContext) {
+    console.log('无法获取 navigator.clipboard 对象')
+    return false
+  }
+  const result = await navigator.clipboard.readText()
+  return result
 }
