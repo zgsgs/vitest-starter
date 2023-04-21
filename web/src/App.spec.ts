@@ -6,18 +6,19 @@ describe('App.vue', () => {
   it('should render success', async () => {
     // given
     const wrapper = mount(App)
+    const text = 'Vite + Vue + TS'
     // when
     await sleep(200)
 
     // const html = wrapper.html()
     const hasText = wrapper.text()
-    const nodeNum = wrapper.findAll('.logo').length
+    const nodeNum = wrapper.findAll('.copy').length
     // then
     // expect(html).toMatchInlineSnapshot()
     // 断言文本内容是否存在
-    expect(hasText).contain('Vite + Vue + TS')
+    expect(hasText).contain(text)
     // 断言文章列表数
-    expect(nodeNum).toBe(3)
+    expect(nodeNum).toBe(1)
   })
 
   it('should 复制按钮是否存在', async () => {

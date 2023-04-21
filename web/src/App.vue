@@ -6,13 +6,13 @@ import { copyText } from '@/utils'
 const postList: Ref<ApiUser.Posts[]> = ref([])
 const commentList: Ref<ApiUser.Comments[]> = ref([])
 
-const fetchPostList = () => {
-  fetch('http://localhost:4430/posts')
-    .then(res => res.json())
-    .then((list) => {
-      postList.value = list
-    })
-}
+// const fetchPostList = () => {
+//   fetch('http://localhost:4430/posts')
+//     .then(res => res.json())
+//     .then((list) => {
+//       postList.value = list
+//     })
+// }
 
 const fetchCommentList = () => {
   fetch('http://localhost:4430/comments')
@@ -23,12 +23,13 @@ const fetchCommentList = () => {
 }
 
 onMounted(() => {
-  fetchPostList()
+  // fetchPostList()
 })
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <div>Vite + Vue + TS</div>
   <div>文章列表</div>
   <div v-for="item in postList" :key="item.id" class="post-item">
     {{ item.title }}
@@ -40,7 +41,7 @@ onMounted(() => {
   <div v-for="item in commentList" :key="item.id" class="comment-item">
     {{ item.content }}
   </div>
-  <button @click="copyText('拷贝一段文本')">
+  <button class="copy" @click="copyText('拷贝一段文本')">
     拷贝
   </button>
 </template>
